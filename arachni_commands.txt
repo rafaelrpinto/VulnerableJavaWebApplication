@@ -1,0 +1,5 @@
+#Starts the application scan
+./arachni --plugin=autologin:url=https://127.0.0.2:8080/login,parameters='login=user1@user1.com&password=abcd1234',check='Hi User 1|Logout' --scope-exclude-pattern='logout' --scope-exclude-pattern='resources' --session-check-pattern='Hi User 1' --session-check-url=https://127.0.0.2:8080 --http-user-agent='Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36' --report-save-path=../scan_report.afr https://127.0.0.2:8080
+
+#Processes the result report to a zip file containing HTML pages
+./arachni_reporter ../scan_report.afr --reporter=html:outfile=../scan_report.html.zip
