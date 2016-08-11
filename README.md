@@ -7,7 +7,7 @@ The applicatin will run on 'https://127.0.0.2:8080/'. If this port is not availa
 
 The 'arachni_commands.txt' file has an example of default security scan with automatic login and other tweaks enabled. For more scanning options check https://github.com/Arachni/arachni.
 
-The article that I wrote explaining how to use Arachni to check this application can be found here on linedin: https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto
+The article that I wrote explaining how to use Arachni to check this application can be found here on linkedin: https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto
 
 If is there any problem running the application or you want to add more security flaws, feel free to open an issue or send a pull request.
 
