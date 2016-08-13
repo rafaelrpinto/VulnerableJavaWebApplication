@@ -5,8 +5,8 @@ The application uses Spring Boot and an embedded H2 database that resets every t
 
 The applicatin will run on HTTPS por 8080. If this port is not available you will need to create an 'application.properties' file on the source folder with the desired Spring Boot port configuration.
 
-The 'arachni_commands.txt' file has an example of default security scan with automatic login and other tweaks enabled. For more scanning options check https://github.com/Arachni/arachni.
+The [ARACHNI.MD](https://github.com/rafaelrpinto/VulnerableJavaWebApplication/blob/master/ARACHNI.MD) file has an example of default security scan with automatic login and other tweaks enabled. For more scanning options check https://github.com/Arachni/arachni.
 
-The article that I wrote explaining how to use Arachni to check this application can be found here on linkedin: https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto
+The article that I wrote explaining how to use Arachni to check this application [is available on linkedin](https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto). 
 
 If is there any problem running the application or you want to add more security flaws, feel free to open an issue or send a pull request.
