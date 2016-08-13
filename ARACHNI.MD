@@ -14,4 +14,6 @@ The command line initiates the scan with the following configurations:
 ### Processing the result report to a zip file containing HTML pages (replace _X for the generated timestamp)
 `./arachni_reporter ../scan_report_X.afr --reporter=html:outfile=../scan_report.html_X.zip`
 
+ For more scanning options check https://github.com/Arachni/arachni.
+
 The article that I wrote explaining how to use Arachni to check this application [is available on linkedin](https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto). 
