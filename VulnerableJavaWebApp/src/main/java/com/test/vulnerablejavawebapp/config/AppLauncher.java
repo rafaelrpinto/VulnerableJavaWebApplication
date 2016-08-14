@@ -1,6 +1,12 @@
 package com.test.vulnerablejavawebapp.config;
 
+import java.util.Collections;
+
 import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.SessionCookieConfig;
+import javax.servlet.SessionTrackingMode;
 import javax.sql.DataSource;
 
 import org.apache.catalina.connector.Connector;
@@ -9,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomizer;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -67,6 +74,24 @@ public class AppLauncher {
 		return new SessionUserFilter();
 	}
 
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(AppLauncher.class, args);
+	}
+	
+	// The following configurations are usally on the application servers and not in the code
+	// but since we are using spring boot to make things simple we configure via code
+	@Bean
+	public ServletContextInitializer servletContextInitializer() {
+		return new ServletContextInitializer() {
+			@Override
+			public void onStartup(ServletContext servletContext) throws ServletException {
+				servletContext.setSessionTrackingModes(Collections.singleton(SessionTrackingMode.COOKIE));
+				SessionCookieConfig sessionCookieConfig = servletContext.getSessionCookieConfig();
+				sessionCookieConfig.setHttpOnly(true);
+			}
+		};
+
+	}
 	@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		// https config
@@ -75,8 +100,6 @@ public class AppLauncher {
 		final String keystoreProvider = "SunJSSE";
 		final String keystoreAlias = "tomcat";
 		final String keystoreAbsolutePath = getClass().getClassLoader().getResource("ssl/keystore.p12").getFile();
-		
-		
 
 		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
 		factory.addConnectorCustomizers((TomcatConnectorCustomizer) (Connector con) -> {
@@ -92,9 +115,5 @@ public class AppLauncher {
 		});
 
 		return factory;
-	}
-
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(AppLauncher.class, args);
 	}
 }
