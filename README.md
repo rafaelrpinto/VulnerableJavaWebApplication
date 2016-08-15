@@ -7,7 +7,7 @@ The applicatin will run on **HTTPS por 8080**. If this port is not available you
 
 The [ARACHNI.MD](https://github.com/rafaelrpinto/VulnerableJavaWebApplication/blob/master/ARACHNI.MD) file has an example of default security scan with automatic login and other tweaks enabled. For more scanning options check https://github.com/Arachni/arachni.
 
-The ModSecurity scripts to protect this application are [in my other repository](https://github.com/rafaelrpinto/ModSecurityScripts).
+The ModSecurity scripts to protect this application are available [in my other repository](https://github.com/rafaelrpinto/ModSecurityScripts).
 
 The article that I wrote explaining how to use Arachni to check this application [is available on linkedin](https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto). 
 
