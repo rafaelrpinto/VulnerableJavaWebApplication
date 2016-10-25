@@ -1,4 +1,4 @@
-package com.test.vulnerablejavawebapp.repository;
+package com.github.rafaelrpinto.vulnerablejavawebapp.repository;
 
 import java.sql.PreparedStatement;
 
@@ -10,7 +10,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.test.vulnerablejavawebapp.model.User;
+import com.github.rafaelrpinto.vulnerablejavawebapp.model.User;
 
 /**
  * 

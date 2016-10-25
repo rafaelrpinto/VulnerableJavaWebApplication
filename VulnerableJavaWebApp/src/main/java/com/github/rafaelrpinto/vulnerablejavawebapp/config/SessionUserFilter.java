@@ -1,4 +1,4 @@
-package com.test.vulnerablejavawebapp.config;
+package com.github.rafaelrpinto.vulnerablejavawebapp.config;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.test.vulnerablejavawebapp.model.User;
+import com.github.rafaelrpinto.vulnerablejavawebapp.model.User;
 
 /**
  * 

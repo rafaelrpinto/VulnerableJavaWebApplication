@@ -1,4 +1,4 @@
-package com.test.vulnerablejavawebapp.config;
+package com.github.rafaelrpinto.vulnerablejavawebapp.config;
 
 import java.util.Collections;
 
@@ -33,7 +33,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  * @author Rafael
  *
  */
-@ComponentScan(basePackages = { "com.test.vulnerablejavawebapp.controller", "com.test.vulnerablejavawebapp.repository" })
+@ComponentScan(basePackages = { "com.github.rafaelrpinto.vulnerablejavawebapp.controller",
+		"com.github.rafaelrpinto.vulnerablejavawebapp.repository" })
 @EnableAutoConfiguration
 public class AppLauncher {
 
@@ -77,9 +78,12 @@ public class AppLauncher {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(AppLauncher.class, args);
 	}
-	
-	// The following configurations are usally on the application servers and not in the code
-	// but since we are using spring boot to make things simple we configure via code
+
+	// The following configurations are usally on the application servers and
+	// not in the code
+	// but since we are using spring boot to make things simple we configure via
+	// code
+	@SuppressWarnings("deprecation")
 	@Bean
 	public ServletContextInitializer servletContextInitializer() {
 		return new ServletContextInitializer() {
@@ -92,6 +96,7 @@ public class AppLauncher {
 		};
 
 	}
+
 	@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		// https config

@@ -1,4 +1,4 @@
-package com.test.vulnerablejavawebapp.controller;
+package com.github.rafaelrpinto.vulnerablejavawebapp.controller;
 
 import java.util.Date;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.test.vulnerablejavawebapp.model.Advertisement;
-import com.test.vulnerablejavawebapp.model.User;
-import com.test.vulnerablejavawebapp.repository.AdvertisementRepository;
+import com.github.rafaelrpinto.vulnerablejavawebapp.model.Advertisement;
+import com.github.rafaelrpinto.vulnerablejavawebapp.model.User;
+import com.github.rafaelrpinto.vulnerablejavawebapp.repository.AdvertisementRepository;
 
 /**
  * 
