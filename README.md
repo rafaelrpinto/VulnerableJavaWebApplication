@@ -12,3 +12,5 @@ The ModSecurity scripts to protect this application are available [in my other r
 The article that I wrote explaining how to use Arachni to check this application [is available on linkedin](https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto). 
 
 If is there any problem running the application or you want to add more security flaws, feel free to open an issue or send a pull request.
+
+## TODO: Docker image step-by-step
