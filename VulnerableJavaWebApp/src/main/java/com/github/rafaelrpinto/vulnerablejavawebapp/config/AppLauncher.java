@@ -9,15 +9,10 @@ import javax.servlet.SessionCookieConfig;
 import javax.servlet.SessionTrackingMode;
 import javax.sql.DataSource;
 
-import org.apache.catalina.connector.Connector;
-import org.apache.coyote.http11.Http11NioProtocol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.ServletContextInitializer;
-import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomizer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -95,30 +90,5 @@ public class AppLauncher {
 			}
 		};
 
-	}
-
-	@Bean
-	public EmbeddedServletContainerFactory servletContainer() {
-		// https config
-		final String keystorePass = "abcd1234";
-		final String keystoreType = "PKCS12";
-		final String keystoreProvider = "SunJSSE";
-		final String keystoreAlias = "tomcat";
-		final String keystoreAbsolutePath = getClass().getClassLoader().getResource("ssl/keystore.p12").getFile();
-
-		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-		factory.addConnectorCustomizers((TomcatConnectorCustomizer) (Connector con) -> {
-			con.setScheme("https");
-			con.setSecure(true);
-			Http11NioProtocol proto = (Http11NioProtocol) con.getProtocolHandler();
-			proto.setSSLEnabled(true);
-			proto.setKeystoreFile(keystoreAbsolutePath);
-			proto.setKeystorePass(keystorePass);
-			proto.setKeystoreType(keystoreType);
-			proto.setProperty("keystoreProvider", keystoreProvider);
-			proto.setKeyAlias(keystoreAlias);
-		});
-
-		return factory;
 	}
 }
