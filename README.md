@@ -17,8 +17,11 @@ If your workstation is not configured for Java 8 development the easiest way to 
 ```bash
 # gets the code
 git clone https://github.com/rafaelrpinto/VulnerableJavaWebApplication
+cd VulnerableJavaWebApplication
+
 # creates the docker image
 docker build -t vulnerable-java-application:0.1 .
+
 # creates/starts the container
 docker run --name vulnerable-java-application -p 9000:9000 -d vulnerable-java-application:0.1
 ```
