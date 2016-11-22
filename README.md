@@ -1,9 +1,31 @@
-# Vulnerable Java Web Application
+# Vulnerable Java Web 
+
+## Intro
+
 This repository provides a simple and self-contained Java web application with security flaws common to mid-00's legacy projects that have not been updated.
 
-The application uses Spring Boot and an embedded H2 database that resets every time the application starts. So just import it on your favourite IDE, execute the AppLauncher class and attack it at will. If you break it just restart the application that everything will be reset.
+The application uses Spring Boot and an embedded H2 database that resets every time the it starts. If you break it just restart it that everything will be reset.
 
-The applicatin will run on **HTTPS port 9000**. If this port is not available you will need to create an 'application.properties' file on the source folder with the desired Spring Boot port configuration.
+The application will run on **HTTPS port 9000**. If this port is not available you will need to change the `application.properties` file on the source folder with the new one. (if you are using docker you just need to map the container's 9000 port to anoter port in the host).
+
+## Running the application manually
+
+If you have a Java 8 + Maven 3.x development environment, just import the project on your IDE and run the class `com.github.rafaelrpinto.vulnerablejavawebapp.config.AppLauncher`.
+
+## Running with docker
+
+If your workstation is not configured for Java 8 development the easiest way to run the application is with Docker.
+
+```bash
+# gets the code and moves to the working dir
+git clone https://github.com/rafaelrpinto/VulnerableJavaWebApplication
+cd cd VulnerableJavaWebApplication/VulnerableJavaWebApp
+# creates the docker image
+docker build -t vulnerable-java-application:0.1 .
+# creates/starts the container
+docker run --name vulnerable-java-application -p 9000:9000 -d vulnerable-java-application:0.1
+```
+## Pen testing
 
 The [ARACHNI.MD](https://github.com/rafaelrpinto/VulnerableJavaWebApplication/blob/master/ARACHNI.MD) file has an example of default security scan with automatic login and other tweaks enabled. For more scanning options check https://github.com/Arachni/arachni.
 
@@ -12,5 +34,3 @@ The ModSecurity scripts to protect this application are available [in my other r
 The article that I wrote explaining how to use Arachni to check this application [is available on linkedin](https://www.linkedin.com/pulse/identifying-security-flaws-legacy-web-applications-arachni-pinto). 
 
 If is there any problem running the application or you want to add more security flaws, feel free to open an issue or send a pull request.
-
-## TODO: Docker image step-by-step
