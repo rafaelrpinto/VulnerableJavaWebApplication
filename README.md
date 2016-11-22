@@ -1,7 +1,5 @@
 # Vulnerable Java Web 
 
-## Intro
-
 This repository provides a simple and self-contained Java web application with security flaws common to mid-00's legacy projects that have not been updated.
 
 The application uses Spring Boot and an embedded H2 database that resets every time the it starts. If you break it just restart it that everything will be reset.
