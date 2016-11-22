@@ -1,0 +1,8 @@
+.settings
+.classpath
+.directory
+.project
+target
+*.log
+*.MD
+LICENSE

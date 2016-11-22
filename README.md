@@ -15,15 +15,14 @@ If you have a Java 8 + Maven 3.x development environment, just import the projec
 If your workstation is not configured for Java 8 development the easiest way to run the application is with Docker.
 
 ```bash
-# gets the code and moves to the working dir
+# gets the code
 git clone https://github.com/rafaelrpinto/VulnerableJavaWebApplication
-cd VulnerableJavaWebApplication/VulnerableJavaWebApp
 # creates the docker image
 docker build -t vulnerable-java-application:0.1 .
 # creates/starts the container
 docker run --name vulnerable-java-application -p 9000:9000 -d vulnerable-java-application:0.1
 ```
-## Pen testing
+## Testing the application with Arachni and ModSecurity
 
 The [ARACHNI.MD](https://github.com/rafaelrpinto/VulnerableJavaWebApplication/blob/master/ARACHNI.MD) file has an example of default security scan with automatic login and other tweaks enabled. For more scanning options check https://github.com/Arachni/arachni.
 
