@@ -4,7 +4,7 @@ This repository provides a simple and self-contained Java web application with s
 
 The application uses Spring Boot and an embedded H2 database that resets every time the it starts. If you break it just restart it that everything will be reset.
 
-The application will run on **HTTPS port 9000**. If this port is not available you will need to change the `application.properties` file on the source folder with the new one. (if you are using docker you just need to map the container's 9000 port to anoter port in the host).
+The application will run on **HTTPS port 9000**. If this port is not available you will need to change the `application.properties` file on the source folder with the new one. (if you are using docker you just need to map the container's 9000 port to another port in the host).
 
 ## Running the application manually
 
