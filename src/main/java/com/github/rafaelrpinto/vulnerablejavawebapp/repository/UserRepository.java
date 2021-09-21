@@ -75,7 +75,12 @@ public class UserRepository {
 	 * @return the user if the provided credentials are correct.
 	 */
 	public User authenticate(String email, String password) {
-		
+		try {
+			String sql = getBaseQuery() + " WHERE EMAIL = ? AND PASSWORD = ?";
+			return this.jdbcTemplate.queryForObject(sql, new Object[] { email.toLowerCase().trim(), password }, ROW_MAPPER);
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	};
 
 	private String getBaseQuery() {

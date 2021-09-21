@@ -46,7 +46,19 @@ public class AdvertisementRepository {
 	 * Creates a new ad on the database.
 	 */
 	public void insert(Advertisement ad) {
-		
+		String sql = "INSERT INTO ADVERTISEMENT(CREATE_DATE, TITLE, TEXT, USER_ID) VALUES (?, ?, ?, ?)";
+		KeyHolder holder = new GeneratedKeyHolder();
+
+		this.jdbcTemplate.update((connection) -> {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setDate(1, new java.sql.Date(ad.getCreateDate().getTime()));
+			pstmt.setString(2, ad.getTitle());
+			pstmt.setString(3, ad.getText());
+			pstmt.setInt(4, ad.getUser().getId());
+			return pstmt;
+		}, holder);
+
+		ad.setId(holder.getKey().intValue());
 	}
 
 	/**
