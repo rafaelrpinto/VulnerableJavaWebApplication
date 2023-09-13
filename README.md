@@ -1,4 +1,4 @@
-# Vulnerable Java Web Application
+edit# Vulnerable Java Web Application
 
 This repository provides a simple and self-contained Java web application with security flaws common to mid-00's legacy projects that have not been updated.
 
